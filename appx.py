@@ -68,13 +68,9 @@ for page in range(start,end+1):
 
     driver.get(url)
 
-    lisa =  [ x.find_element(By.CSS_SELECTOR,'a.ClickSearchResultEvent_Class').text for x in driver.find_elements(By.CSS_SELECTOR,'div.productContainer')]
-
 
     lis = [ k for k in driver.find_elements(By.CSS_SELECTOR,'div.productContainer')]
 
-    for link in lisa: 
-        print(link)
 
     for i in lis:
 
