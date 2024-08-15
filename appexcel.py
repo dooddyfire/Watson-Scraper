@@ -127,7 +127,7 @@ for page in range(start,end+1):
         price_discount_lis.append(dc_price)
 
         try:
-                member_price = i.find_element(By.CSS_SELECTOR,'div.memberPrice-content').text.strip()
+                member_price = soup.find_all('span',{'class':'price'})[1].text
 
         except: 
                 member_price = '-'
