@@ -54,7 +54,7 @@ price_discount_lis = []
 prod_name_lis = []
 member_price_lis = []
 item_link_lis = []
-
+pro2_lis = []
 driver = Driver(uc=True)
 
 
@@ -145,6 +145,13 @@ for page in range(start,end+1):
         print('Total Sell : ',bought)
         bought_lis.append(bought)
 
+        try: 
+               pro2 = "\n".join([x.text for x in soup.find_all('div',{'class':'promotion-group'})])
+               
+        except:
+               pro2 = '-' 
+        print('promotion 2 : ',pro2)
+        pro2_lis.append(pro2)
         print()
         c = c + 1
 
@@ -155,6 +162,7 @@ df['Discount Pirce'] = price_discount_lis
 df['Member Price'] = member_price_lis 
 df['ขายไปแแล้ว'] = bought_lis 
 df['Promotion'] = pro_item_lis 
+df['Promotion 2'] = pro2_lis
 df['Link'] = item_link_lis
 df.to_excel(filename+'.xlsx')
 
